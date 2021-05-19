@@ -6,8 +6,9 @@ import (
 	"net"
 	"time"
 
-	"github.com/onkarsutar/grpc-go/user/user_server/helper"
-	"github.com/onkarsutar/grpc-go/user/userpb"
+	"helper"
+	"userpb"
+
 	"google.golang.org/grpc"
 )
 
