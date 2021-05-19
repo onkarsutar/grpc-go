@@ -20,7 +20,15 @@ message GetUserByIDResponse{
     User user=1;
 }
 
+message GetAllUsersRequest{
+    // int64 ID=1;
+}
+message GetAllUsersResponse{
+    User user=1;
+}
+
 service UserService{
     rpc GetUserByID(GetUserByIDRequest) returns(GetUserByIDResponse){};
+    rpc GetAllUsers(GetAllUsersRequest) returns(stream GetAllUsersResponse){};
 }
 

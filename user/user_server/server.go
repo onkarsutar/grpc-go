@@ -4,6 +4,7 @@ import (
 	"context"
 	"log"
 	"net"
+	"time"
 
 	"github.com/onkarsutar/grpc-go/user/user_server/helper"
 	"github.com/onkarsutar/grpc-go/user/userpb"
@@ -28,6 +29,26 @@ func (*server) GetUserByID(c context.Context, req *userpb.GetUserByIDRequest) (*
 	}
 
 	return &res, nil
+}
+
+func (*server) GetAllUsers(req *userpb.GetAllUsersRequest, stream userpb.UserService_GetAllUsersServer) error {
+	log.Printf("Invoked GetAllUsers with %v\n", req)
+	users, err := helper.GetAllUsers()
+	if err != nil {
+		log.Fatalf("Failed to get user %v", err)
+	}
+
+	for i := 0; i < len(users); i++ {
+		res := &userpb.GetAllUsersResponse{
+			User: &users[i],
+		}
+		log.Printf("Sending %s", res.User.GetFName())
+		stream.Send(res)
+		time.Sleep(time.Second)
+	}
+
+	return nil
+
 }
 
 func main() {

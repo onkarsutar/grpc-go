@@ -2,6 +2,7 @@ package main
 
 import (
 	"context"
+	"io"
 	"log"
 
 	"github.com/onkarsutar/grpc-go/user/userpb"
@@ -18,8 +19,8 @@ func main() {
 	defer conn.Close()
 
 	c := userpb.NewUserServiceClient(conn)
-	getUser(c)
-	// getAllUsers(c)
+	// getUser(c)
+	getAllUsers(c)
 }
 
 func getUser(c userpb.UserServiceClient) {
@@ -33,4 +34,26 @@ func getUser(c userpb.UserServiceClient) {
 	}
 
 	log.Println("Response : ", res)
+}
+
+func getAllUsers(c userpb.UserServiceClient) {
+
+	req := userpb.GetAllUsersRequest{}
+
+	res, err := c.GetAllUsers(context.Background(), &req)
+	if err != nil {
+		log.Fatalf("Failed ti call GetUserByID %v\n", err)
+	}
+
+	for {
+		msg, err := res.Recv()
+		if err == io.EOF {
+			break
+		}
+		if err != nil {
+			log.Fatalf("Failed to read stream %v\n", err)
+		}
+
+		log.Println(msg.GetUser())
+	}
 }
