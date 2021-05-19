@@ -1,0 +1,82 @@
+[
+  {
+    "id": 1,
+    "fName": "Steve",
+    "city": "LA",
+    "phone": 1234567890,
+    "height": 5.8,
+    "married": true
+  },
+  {
+    "id": 2,
+    "fName": "Steve",
+    "city": "LA",
+    "phone": 1234567891,
+    "height": 5.6,
+    "married": true
+  },
+  {
+    "id": 3,
+    "fName": "Steve",
+    "city": "LA",
+    "phone": 1234567892,
+    "height": 5.7,
+    "married": true
+  },
+  {
+    "id": 4,
+    "fName": "Steve",
+    "city": "LA",
+    "phone": 1234567893,
+    "height": 5.8,
+    "married": true
+  },
+  {
+    "id": 5,
+    "fName": "Steve",
+    "city": "LA",
+    "phone": 1234567894,
+    "height": 5.9,
+    "married": true
+  },
+  {
+    "id": 6,
+    "fName": "Steve",
+    "city": "LA",
+    "phone": 1234567895,
+    "height": 5.10,
+    "married": true
+  },
+  {
+    "id": 7,
+    "fName": "Steve",
+    "city": "LA",
+    "phone": 1234567896,
+    "height": 5.11,
+    "married": true
+  },
+  {
+    "id": 8,
+    "fName": "Steve",
+    "city": "LA",
+    "phone": 1234567897,
+    "height": 6.2,
+    "married": true
+  },
+  {
+    "id": 9,
+    "fName": "Steve",
+    "city": "LA",
+    "phone": 1234567898,
+    "height": 6.4,
+    "married": true
+  },
+  {
+    "id": 10,
+    "fName": "Steve",
+    "city": "LA",
+    "phone": 1234567899,
+    "height": 6.5,
+    "married": true
+  }
+]

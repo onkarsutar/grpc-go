@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+package greet;
+
+option go_package = "./user/userpb";
+
+message User{
+    int64 ID=1;
+    string fName=2;
+    string city=3;
+    int64 phone=4;
+    float height=5;
+    bool married=6; 
+}
+
+message GetUserByIDRequest{
+    int64 ID=1;
+}
+message GetUserByIDResponse{
+    User user=1;
+}
+
+service UserService{
+    rpc GetUserByID(GetUserByIDRequest) returns(GetUserByIDResponse){};
+}
+

@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+package calculator;
+
+option go_package = "./calculator/calculatorpb";
+
+message SumRequest{
+    int64 num1 = 1 ;
+    int64 num2 = 2 ;
+}
+message SumResponse {
+    int64 sum =1;
+}
+
+message FibRequest{
+    int64 number = 1 ;
+}
+message FibResponse {
+    int64 fib =1;
+}
+
+service CalculatorService{
+    rpc Sum(SumRequest) returns (SumResponse){};
+    rpc FibSeries(FibRequest) returns (stream FibResponse){};
+}
